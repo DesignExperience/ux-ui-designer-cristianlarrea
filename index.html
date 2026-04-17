@@ -639,6 +639,34 @@ footer{
   box-shadow:0 0 0 3px rgba(22,163,74,.18);
   animation:livePulse 2.2s ease-in-out infinite;
 }
+.tray-clients{
+  margin-top:28px;
+  overflow:hidden;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.tray-clients-track{
+  display:flex;gap:0;
+  width:max-content;
+  animation:clientsScroll 28s linear infinite;
+}
+.tray-clients-track span{
+  white-space:nowrap;
+  font-size:11px;font-weight:600;letter-spacing:.04em;
+  color:var(--ink-light);
+  text-transform:uppercase;
+  padding:0 18px;
+  position:relative;
+}
+.tray-clients-track span::after{
+  content:'·';
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  color:var(--ink-faint);
+}
+@keyframes clientsScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
 .tray-stat-num{
   font-family:var(--fd);font-weight:800;font-size:28px;
   letter-spacing:-1.5px;line-height:1;color:var(--ink);
@@ -650,12 +678,12 @@ footer{
 /* Job list */
 .tray-list{display:flex;flex-direction:column}
 .tray-row{
-  display:grid;
-  grid-template-columns:1.2fr 1.4fr auto;
-  align-items:center;
-  padding:20px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:18px 0;
   border-bottom:1px solid var(--ink-faint);
-  gap:16px;
+  gap:4px;
   transition:padding .2s,background .2s;
   border-radius:8px;
 }
@@ -695,9 +723,7 @@ footer{
   .tray-statement{position:static}
 }
 @media(max-width:560px){
-  .tray-row{grid-template-columns:1fr auto;gap:8px}
-  .tray-role{display:none}
-  .tray-period{font-size:10px}
+  .tray-role{display:block}
 }
 
 /* ═══════════════════════════════════════════════════
@@ -912,73 +938,6 @@ footer{
       <p class="sec-sub">Trabajo autónomo, entrega real. Disponible full-time.</p>
     </div>
     <div class="sv-grid" id="sv-grid"></div>
-  </div>
-</section>
-
-<!-- TRAYECTORIA -->
-<section id="trayectoria">
-  <div class="wrap">
-    <div class="rv">
-      <div class="sec-ew" style="color:var(--blue)">Trayectoria · Experiencia laboral</div>
-    </div>
-    <div class="tray-layout">
-
-      <!-- Left: sticky statement -->
-      <div class="tray-statement rv">
-        <p class="tray-statement-text">
-          Tengo experiencia <span class="serif">diseñando productos</span> digitales para startups y marcas en crecimiento.
-        </p>
-        <div class="tray-stat-row">
-          <div class="tray-stat">
-            <span class="tray-stat-num">7+</span>
-            <span class="tray-stat-lbl">años de experiencia</span>
-          </div>
-          <div class="tray-stat">
-            <span class="tray-stat-num">10+</span>
-            <span class="tray-stat-lbl">industrias distintas</span>
-          </div>
-          <div class="tray-stat tray-stat-open">
-            <span class="tray-open-dot"></span>
-            <span class="tray-stat-lbl" style="color:var(--green);font-weight:700">Open to freelance</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: job list -->
-      <div class="tray-list rv d1">
-
-        <div class="tray-row live">
-          <span class="tray-company">IEB+</span>
-          <span class="tray-role">Product UX/UI Designer</span>
-          <span class="tray-period">2025 → Now</span>
-        </div>
-
-        <div class="tray-row">
-          <span class="tray-company">GOIAR</span>
-          <span class="tray-role">Diseñador de Producto UX/UI · Product Analyst</span>
-          <span class="tray-period">mayo 2024 → feb. 2025</span>
-        </div>
-
-        <div class="tray-row">
-          <span class="tray-company">Accusys Technology</span>
-          <span class="tray-role">Diseñador UX-UI · Digital Designer</span>
-          <span class="tray-period">feb. 2022 → may. 2024</span>
-        </div>
-
-        <div class="tray-row">
-          <span class="tray-company">Paginar</span>
-          <span class="tray-role">Diseñador UX/UI · Diseñador Visual</span>
-          <span class="tray-period">nov. 2020 → feb. 2022</span>
-        </div>
-
-        <div class="tray-row">
-          <span class="tray-company">Freelance</span>
-          <span class="tray-role">UX/UI Designer · Branding</span>
-          <span class="tray-period">2019 → 2021</span>
-        </div>
-
-      </div>
-    </div>
   </div>
 </section>
 
